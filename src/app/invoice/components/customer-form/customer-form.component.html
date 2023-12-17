@@ -1,0 +1,55 @@
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="mb-3">
+            <label for="nazwaFirmy" class="form-label">Company name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="client.name" >
+        </div>
+        <div class="mb-3">
+            <label for="NIP" class="form-label" >NIP</label>
+            <input type="text" class="form-control" id="NIP" aria-describedby="" name="NIP" [(ngModel)]="client.taxId" required>
+        </div>
+        <div class="mb-3">
+            <label for="miasto" class="form-label" >City</label>
+            <input type="text" class="form-control" id="miasto" aria-describedby="" name="city" [(ngModel)]="client.city" required>
+        </div>
+        <div class="mb-3">
+            <label for="ulica" class="form-label" >Street</label>
+            <input type="text" class="form-control" id="ulica" aria-describedby="" name="street" [(ngModel)]="client.street" required>
+        </div>
+        <div class="mb-3">
+            <label for="numerDomu" class="form-label" >House number</label>
+            <input type="text" class="form-control" id="numerDomu" aria-describedby="" name="houseNumber" [(ngModel)]="client.houseNumber" required>
+        </div>
+        <div class="mb-3">
+            <label for="numerMieszkania" class="form-label" >Flat number</label>
+            <input type="text" class="form-control" id="numerMieszkania" aria-describedby="" name="roomNumber" [(ngModel)]="client.roomNumber">
+        </div>
+        <div class="mb-3">
+            <label for="kodPocztowy" class="form-label" >Zip code</label>
+            <input type="text" class="form-control" id="kodPocztowy" aria-describedby="" name="postalCode" [(ngModel)]="client.postalCode" required>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Zostaw tu swoje uwagi" id="uwagi" name="comments" [(ngModel)]="client.comments"></textarea>
+            <label for="floatingTextarea">Comments</label>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" id="branża" name="field" [(ngModel)]="client.field">
+                <option selected>Industry</option>
+                <option value="1">IT</option>
+                <option value="2">Entertainment</option>
+            </select>
+        </div>
+        
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" name="isActive" [(ngModel)]="client.isActive">
+            <label class="btn btn-outline-primary" for="btncheck1">Active</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <!-- <button type="button" class="btn btn-primary" onclick="lock()">Wstaw</button> -->
+      </form>
+      <div id="client-list-container" style="display: none;">
+        <ul class="list-group" id="client-list">
+        </ul>
+        <button type="button" class="btn btn-primary" onclick="showForm()">Add new customer</button>      
+      </div>
+    
