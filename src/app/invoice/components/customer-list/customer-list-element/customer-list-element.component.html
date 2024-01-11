@@ -1,0 +1,2 @@
+<li [style.color]="!customer.isActive ? 'red' : {}">{{ customer.getData() }}</li>
+<button type="button" class="btn btn-danger" (click)="onDeletedCustomer(customer)">Delete customer</button>

@@ -1,1 +1,9 @@
-<p>customer-list works!</p>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/invoice/customer-form']">Add new customer</button>
+
+@for (customer of customerList; track $index) {
+    <app-customer-list-element
+        [customer]="customer"
+        (deletedCustomerEvent)="deletedCustomer(customer)"
+    ></app-customer-list-element>
+}

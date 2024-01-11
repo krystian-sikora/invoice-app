@@ -1,5 +1,7 @@
 export class Client {
+
     constructor() {}
+    
     name: string= ""
     taxId: string = ""
     city: string = ""

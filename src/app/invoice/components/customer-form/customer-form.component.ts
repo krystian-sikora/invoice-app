@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Client } from '../../classes/client';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
+import { CustomerService } from '../../services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-form',
@@ -9,9 +11,24 @@ import { NgForm } from '@angular/forms';
   styleUrl: './customer-form.component.scss'
 })
 export class CustomerFormComponent {
-client: Client = new Client();
-name='';
+
+  client: Client = new Client();
+
+  constructor (private customerService: CustomerService, private router: Router) { }
+
+
   onSubmit(f: NgForm) {
+
+    if (f.invalid) {
+      console.log("invalid form")
+      return;
+    }
+
     console.log(this.client)
+    this.customerService.addCustomer(this.client);
+    this.router.navigate(['/invoice/customer-list'])
   }
 }
+
+  
+
